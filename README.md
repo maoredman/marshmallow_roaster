@@ -9,6 +9,8 @@ After visiting several stores that sold electronic materials, we still couldn't 
 
 ![](https://i.imgur.com/WkXyGBB.jpg)
 
+To concentrate the radiating heat and hot air, we cut off one side of an open cardboard box to form an "oven opening", padded the interior with aluminum foil, and put this cover over the three nichrome wire boards.
+
 We did some testing to ensure that the temperature was indeed high enough to roast marshmallows, which it was (phew!), and got that nice brown coating without much effort :D
 
 ### Automatic roasting tray
@@ -21,3 +23,19 @@ To implement this, we connected four stepper motors and a button to a Raspberry 
 
 ![](https://i.imgur.com/Vi2rhvW.jpg)
 
+With both the heat source and roasting tray completed, we could now roast perfect marshmallows with minimal effort!
+
+## Instructions for operation
+1. Get 4 marshmallows and 4 sticks, then poke the sticks into the marshmallows. Insert the sticks into the wood bases on the roasting tray.
+2. Plug in the heater (110V). You will see the nichrome wire heat up and become red.
+3. Push the roasting tray into the "oven", and press the button to begin the roasting process. The motors should first turn 30 seconds, heating the marshmallows uniformly to melt them. Then, the motors should stop turning -- two sides of each marshmallow will be continuously heated until they become nice and brown.
+4. When you see the marshmallows become brown, slide the tray out of the "oven", and you will have 4 perfectly roasted marshmallows.
+5. Eat (send your mouth to sweet marshmallow heaven)
+
+## Explanation of code files
+
+* `startup.sh`: the script that runs when the Pi is booted, runs `LCD_test.py` and `button.py`
+* `LCD_test.py`: reads the temperature and shows it on an LCD screen
+* `button.py`: allows control of stepper motors by pushing a button
+* `I2C_LCD_driver.py`: dependency for `LCD_test`
+* `ds18b20.sh`: just a test of reading temperature data
